@@ -1,6 +1,7 @@
 package com.mario.game;
 
 import com.mario.game.entities.Player;
+import com.mario.game.inputs.KeyboardInput;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,9 +15,15 @@ public class GamePanel extends JPanel implements Runnable {
     private final int HEIGHT = 720;
 
     private Player player;
+    private KeyboardInput keyInput;
 
     public GamePanel() {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
+
+        keyInput = new KeyboardInput();
+        addKeyListener(keyInput);
+        setFocusable(true);
+        requestFocusInWindow();
 
         player = new Player(100 , 400);
 
@@ -65,6 +72,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     private void update(){
+        player.update(keyInput.leftPressed, keyInput.rightPressed, keyInput.jumpPressed);
     }
 
 }
