@@ -1,5 +1,7 @@
 package com.mario.game;
 
+import com.mario.game.entities.Player;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,8 +13,12 @@ public class GamePanel extends JPanel implements Runnable {
     private final int WIDTH = 1280;
     private final int HEIGHT = 720;
 
+    private Player player;
+
     public GamePanel() {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
+
+        player = new Player(100 , 400);
 
         startGame();
     }
@@ -55,12 +61,10 @@ public class GamePanel extends JPanel implements Runnable {
         g.setColor(Color.CYAN);
         g.fillRect(0, 0, WIDTH, HEIGHT); // background
 
-        g.setColor(Color.RED);
-        g.fillRect(100, 500, 50 , 50);
+        player.draw(g);
     }
 
     private void update(){
-
     }
 
 }
