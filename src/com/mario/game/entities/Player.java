@@ -31,8 +31,8 @@ public class Player {
             jumping = false;
         }
 
-        if (jump && onGround) {
-            yVelocity = -15;
+        if (jump && onGround) { // jump
+            yVelocity = -20;
             onGround = false;
             jumping = true;
         }
