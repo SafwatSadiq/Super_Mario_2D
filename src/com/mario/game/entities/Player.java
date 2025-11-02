@@ -6,6 +6,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Player {
+    private int X, Y;
     private int x, y;
     private int width, height;
     private int yVelocity;
@@ -14,6 +15,8 @@ public class Player {
     private boolean onGround;
 
     public Player(int startX, int startY){
+        this.X = startX;
+        this.Y = startY;
         this.x = startX;
         this.y = startY;
         this.width = 75;
@@ -24,6 +27,11 @@ public class Player {
     }
 
     public void update(boolean left, boolean right, boolean jump, ArrayList<Tile> tiles) {
+        if(y > 1000){
+            x = X;
+            y = Y;
+        }
+
         if (jump && onGround) { // jump
             yVelocity = -20;
             onGround = false;

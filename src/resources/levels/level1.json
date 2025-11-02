@@ -1,0 +1,51 @@
+{
+  "level": 1,
+  "blocks": [
+    {"x": 0, "y": 600, "width": 50, "height": 50, "solid": true},
+    {"x": 50, "y": 600, "width": 50, "height": 50, "solid": true},
+    {"x": 100, "y": 600, "width": 50, "height": 50, "solid": true},
+    {"x": 150, "y": 600, "width": 50, "height": 50, "solid": true},
+    {"x": 200, "y": 600, "width": 50, "height": 50, "solid": true},
+    {"x": 250, "y": 600, "width": 50, "height": 50, "solid": true},
+    {"x": 300, "y": 600, "width": 50, "height": 50, "solid": true},
+    {"x": 350, "y": 600, "width": 50, "height": 50, "solid": true},
+    {"x": 400, "y": 600, "width": 50, "height": 50, "solid": true},
+//    {"x": 450, "y": 600, "width": 50, "height": 50, "solid": true},
+//    {"x": 500, "y": 600, "width": 50, "height": 50, "solid": true},
+//    {"x": 550, "y": 600, "width": 50, "height": 50, "solid": true},
+//    {"x": 600, "y": 600, "width": 50, "height": 50, "solid": true},
+    {"x": 650, "y": 600, "width": 50, "height": 50, "solid": true},
+    {"x": 700, "y": 600, "width": 50, "height": 50, "solid": true},
+    {"x": 750, "y": 600, "width": 50, "height": 50, "solid": true},
+    {"x": 800, "y": 600, "width": 50, "height": 50, "solid": true},
+    {"x": 850, "y": 600, "width": 50, "height": 50, "solid": true},
+    {"x": 900, "y": 600, "width": 50, "height": 50, "solid": true},
+//    {"x": 950, "y": 600, "width": 50, "height": 50, "solid": true},
+//    {"x": 1000, "y": 600, "width": 50, "height": 50, "solid": true},
+//    {"x": 1050, "y": 600, "width": 50, "height": 50, "solid": true},
+//    {"x": 1100, "y": 600, "width": 50, "height": 50, "solid": true},
+    {"x": 1150, "y": 600, "width": 50, "height": 50, "solid": true},
+    {"x": 1200, "y": 600, "width": 50, "height": 50, "solid": true},
+
+    {"x": 650, "y": 600, "width": 50, "height": 50, "solid": true},
+    {"x": 650, "y": 550, "width": 50, "height": 50, "solid": true},
+    {"x": 650, "y": 500, "width": 50, "height": 50, "solid": true},
+    {"x": 650, "y": 450, "width": 50, "height": 50, "solid": true},
+    {"x": 650, "y": 400, "width": 50, "height": 50, "solid": true},
+    {"x": 650, "y": 350, "width": 50, "height": 50, "solid": true},
+
+    {"x": 400, "y": 600, "width": 50, "height": 50, "solid": true},
+    {"x": 400, "y": 550, "width": 50, "height": 50, "solid": true},
+    {"x": 400, "y": 500, "width": 50, "height": 50, "solid": true},
+
+    {"x": 0, "y": 400, "width": 50, "height": 50, "solid": true},
+    {"x": 50, "y": 400, "width": 50, "height": 50, "solid": true},
+    {"x": 100, "y": 400, "width": 50, "height": 50, "solid": true},
+    {"x": 150, "y": 400, "width": 50, "height": 50, "solid": true},
+    {"x": 200, "y": 400, "width": 50, "height": 50, "solid": true},
+    {"x": 250, "y": 400, "width": 50, "height": 50, "solid": true},
+
+    {"x": 350, "y": 250, "width": 50, "height": 50, "solid": true},
+    {"x": 400, "y": 250, "width": 50, "height": 50, "solid": true}
+  ]
+}
