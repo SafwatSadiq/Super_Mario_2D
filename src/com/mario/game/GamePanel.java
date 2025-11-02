@@ -2,6 +2,7 @@ package com.mario.game;
 
 import com.mario.game.entities.Player;
 import com.mario.game.inputs.KeyboardInput;
+import com.mario.game.levels.Levels;
 import com.mario.game.levels.Tiles;
 
 import javax.swing.*;
@@ -17,6 +18,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     private Player player;
     private KeyboardInput keyInput;
+    private Levels levels;
 
     public GamePanel() {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -27,6 +29,7 @@ public class GamePanel extends JPanel implements Runnable {
         requestFocusInWindow();
 
         player = new Player(100 , 400);
+        levels = new Levels();
 
         startGame();
     }
@@ -70,11 +73,8 @@ public class GamePanel extends JPanel implements Runnable {
         g.fillRect(0, 0, WIDTH, HEIGHT); // background
 
         player.draw(g);
+        levels.renderLevel(g);
 
-//        for(int i = 0; i < 5; i++){
-//            Tiles tile = new Tiles((50 * i), 600, 50, 50, true);
-//            tile.draw(g);
-//        }
     }
 
     private void update(){
