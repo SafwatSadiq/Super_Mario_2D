@@ -17,6 +17,11 @@ public class Levels {
         // Render Floating Blocks
         tiles.add(new Tile(100, 440, 50, 50, true));
         tiles.add(new Tile(150, 440, 50, 50, true));
+
+        // Render A Wall
+        tiles.add(new Tile(300, 450, 50, 50, true));
+        tiles.add(new Tile(300, 500, 50, 50, true));
+        tiles.add(new Tile(300, 550, 50, 50, true));
     }
 
     public ArrayList<Tile> getTiles(){

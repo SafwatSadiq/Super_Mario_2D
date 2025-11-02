@@ -24,16 +24,6 @@ public class Player {
     }
 
     public void update(boolean left, boolean right, boolean jump, ArrayList<Tile> tiles) {
-        if (left) x -= speed;
-        if (right) x += speed;
-
-//        if (y >= 500) { // ground level
-//            y = 500;
-//            yVelocity = 0;
-//            onGround = true;
-//            jumping = false;
-//        }
-
         if (jump && onGround) { // jump
             yVelocity = -20;
             onGround = false;
@@ -44,8 +34,7 @@ public class Player {
             yVelocity += 1; // gravity
             y += yVelocity;
         }
-        onGround = false;
-        checkCollision(tiles);
+        checkCollision(left, right , tiles);
     }
 
     public void draw(Graphics g){
@@ -53,23 +42,58 @@ public class Player {
         g.fillRect(x, y, width, height);
     }
 
-    public void checkCollision(ArrayList<Tile> tiles) {
+    public void checkCollision(boolean leftPressed, boolean rightPressed, ArrayList<Tile> tiles) {
         Rectangle playerBounds = new Rectangle(x, y, width, height);
+
+        onGround = false;
+
+        // Vertical Collision
         for (Tile tile : tiles) {
             if (!tile.isSolid()) continue;
-            if (playerBounds.intersects(tile.getBounds())) {
-                Rectangle tileBounds = tile.getBounds();
 
-                if (y + height <= tileBounds.y + 10 && y + height >= tileBounds.y) {
+            Rectangle tileBounds = tile.getBounds();
+
+            if (playerBounds.intersects(tileBounds)) {
+
+                // Moving Down
+                if (yVelocity > 0 && y + height > tileBounds.y && y < tileBounds.y) {
+                    y = tileBounds.y - height; // put player on top
                     yVelocity = 0;
                     onGround = true;
                     jumping = false;
-                } else if (y >= tileBounds.y + tileBounds.height - 10 && y <= tileBounds.y + tileBounds.height) {
+                }
+
+                // Moving Up
+                else if (yVelocity < 0 && y < tileBounds.y + tileBounds.height && y + height > tileBounds.y + tileBounds.height) {
+                    y = tileBounds.y + tileBounds.height;
                     yVelocity = 0;
-                } else if (x + width >= tileBounds.x && x < tileBounds.x && y == tileBounds.y) {
-                    speed = 0;
-                } else if (x <= tileBounds.x + tileBounds.width && x > tileBounds.x && y == tileBounds.y) {
-                    speed = 0;
+                }
+            }
+        }
+
+        // Horizontal Collision
+        Rectangle newBounds;
+
+        if (leftPressed) {
+            x -= speed;
+            newBounds = new Rectangle(x, y, width, height);
+            for (Tile tile : tiles) {
+                if (!tile.isSolid()) continue;
+                if (newBounds.intersects(tile.getBounds())) {
+                    x = tile.getBounds().x + tile.getBounds().width;
+                    break;
+                }
+            }
+        }
+
+        if (rightPressed) {
+            x += speed;
+            newBounds = new Rectangle(x, y, width, height);
+            for (Tile tile : tiles) {
+                if (!tile.isSolid()) continue;
+                if (newBounds.intersects(tile.getBounds())) {
+                    x = tile.getBounds().x - width;
+                    break;
                 }
             }
         }
