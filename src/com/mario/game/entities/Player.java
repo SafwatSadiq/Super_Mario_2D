@@ -13,7 +13,7 @@ public class Player {
     public Player(int startX, int startY){
         this.x = startX;
         this.y = startY;
-        this.width = 20;
+        this.width = 75;
         this.height = 100;
         this.speed = 5;
         this.jumping = false;

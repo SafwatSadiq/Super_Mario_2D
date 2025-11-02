@@ -3,7 +3,6 @@ package com.mario.game;
 import com.mario.game.entities.Player;
 import com.mario.game.inputs.KeyboardInput;
 import com.mario.game.levels.Levels;
-import com.mario.game.levels.Tiles;
 
 import javax.swing.*;
 import java.awt.*;

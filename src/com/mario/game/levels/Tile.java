@@ -2,12 +2,12 @@ package com.mario.game.levels;
 
 import java.awt.*;
 
-public class Tiles {
+public class Tile {
     private int x, y;
     private int width, height;
     private boolean solid;
 
-    public Tiles(int x, int y, int width, int height, boolean solid){
+    public Tile(int x, int y, int width, int height, boolean solid){
         this.x = x;
         this.y = y;
         this.width = width;
