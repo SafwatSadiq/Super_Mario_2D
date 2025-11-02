@@ -77,7 +77,7 @@ public class GamePanel extends JPanel implements Runnable {
     }
 
     private void update(){
-        player.update(keyInput.leftPressed, keyInput.rightPressed, keyInput.jumpPressed);
+        player.update(keyInput.leftPressed, keyInput.rightPressed, keyInput.jumpPressed, levels.getTiles());
     }
 
 }
