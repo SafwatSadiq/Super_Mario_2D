@@ -68,8 +68,11 @@ public class GamePanel extends JPanel implements Runnable {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
+        if(WIDTH / 6 - player.getX() < 0)
+            g.translate(WIDTH / 6 - player.getX(), 0);
+
         g.setColor(Color.CYAN);
-        g.fillRect(0, 0, WIDTH, HEIGHT); // background
+        g.fillRect(0, 0, Integer.MAX_VALUE, HEIGHT); // background
 
         player.draw(g);
         levels.renderLevel(g);
