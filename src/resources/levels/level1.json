@@ -1,6 +1,19 @@
 {
   "level": 1,
   "blocks": [
-    {"x": 0, "y": 600, "width": 2000, "height": 50, "solid": true, "texture": "ground"}
+
+    {"x": 0, "y": 0, "width": 1, "height": 720, "solid": true, "texture": "pipe"},
+
+    {"x": 0, "y": 600, "width": 2000, "height": 130, "solid": true, "texture": "ground"},
+
+    {"x": 400, "y": 450, "width": 100, "height": 150, "solid": true, "texture": "pipe"},
+
+    {"x": 600, "y": 400, "width": 100, "height": 200, "solid": true, "texture": "pipe"},
+
+    {"x": 2000, "y": 600, "width": 200, "height": 130, "solid": false, "texture": "hole"},
+
+    {"x": 2200, "y": 600, "width": 2000, "height": 130, "solid": true, "texture": "ground"},
+
+    {"x": 5000, "y": 0, "width": 1, "height": 720, "solid": true, "texture": "pipe"}
   ]
 }

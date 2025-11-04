@@ -3,6 +3,7 @@ package com.mario.game;
 import com.mario.game.entities.Player;
 import com.mario.game.inputs.KeyboardInput;
 import com.mario.game.levels.Levels;
+import com.mario.game.util.ImageLoader;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,6 +19,7 @@ public class GamePanel extends JPanel implements Runnable {
     private Player player;
     private KeyboardInput keyInput;
     private Levels levels;
+    private Camera camera;
 
     public GamePanel() {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -29,6 +31,11 @@ public class GamePanel extends JPanel implements Runnable {
 
         player = new Player(100 , 400);
         levels = new Levels();
+
+        int worldWidth = levels.getWorldWidth();
+        int worldHeight = HEIGHT;
+
+        camera = new Camera(WIDTH, HEIGHT, worldWidth, worldHeight);
 
         startGame();
     }
@@ -68,19 +75,16 @@ public class GamePanel extends JPanel implements Runnable {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        if(WIDTH / 6 - player.getX() < 0)
-            g.translate(WIDTH / 6 - player.getX(), 0);
+        g.drawImage(ImageLoader.load("src/resources/images/sky.png"), 0, 0, WIDTH, HEIGHT - 100, null);
 
-        g.setColor(Color.CYAN);
-        g.fillRect(0, 0, Integer.MAX_VALUE, HEIGHT); // background
-
-        player.draw(g);
-        levels.renderLevel(g);
+        levels.renderLevel(g, camera);
+        player.draw(g, camera);
 
     }
 
     private void update(){
         player.update(keyInput.leftPressed, keyInput.rightPressed, keyInput.jumpPressed, levels.getTiles());
+        camera.update(player);
     }
 
 }

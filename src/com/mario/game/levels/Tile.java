@@ -1,5 +1,6 @@
 package com.mario.game.levels;
 
+import com.mario.game.Camera;
 import com.mario.game.util.ImageLoader;
 
 import java.awt.*;
@@ -22,8 +23,10 @@ public class Tile {
         getTexture();
     }
 
-    public void draw(Graphics graphics){
-        graphics.drawImage(texture, x, y, width, height, null);
+    public void draw(Graphics graphics, Camera camera){
+        graphics.drawImage(texture, x - camera.getX(),
+                y - camera.getY(),
+                width, height , null);
     }
 
     public boolean isSolid() {
@@ -36,5 +39,21 @@ public class Tile {
 
     public void getTexture(){
         texture = ImageLoader.load("src/resources/images/" + textureName + ".png");
+    }
+
+    public int getX(){
+        return x;
+    }
+
+    public int getY(){
+        return y;
+    }
+
+    public int getHeight(){
+        return height;
+    }
+
+    public int getWidth(){
+        return width;
     }
 }

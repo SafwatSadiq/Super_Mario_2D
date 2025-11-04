@@ -1,5 +1,6 @@
 package com.mario.game.entities;
 
+import com.mario.game.Camera;
 import com.mario.game.levels.Tile;
 
 import java.awt.*;
@@ -65,8 +66,8 @@ public class Player {
         updateFrame(left, right);
     }
 
-    public void draw(Graphics g){
-        g.drawImage(marioState, x, y, width, height, null);
+    public void draw(Graphics g , Camera camera){
+        g.drawImage(marioState, x - camera.getX(), y - camera.getY(), width, height, null);
     }
 
     public void checkCollision(boolean leftPressed, boolean rightPressed, ArrayList<Tile> tiles) {

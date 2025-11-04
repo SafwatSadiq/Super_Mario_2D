@@ -2,6 +2,7 @@ package com.mario.game.levels;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.mario.game.Camera;
 
 import java.awt.*;
 import java.io.FileReader;
@@ -26,9 +27,9 @@ public class Levels {
         return tiles;
     }
 
-    public void renderLevel(Graphics g){
+    public void renderLevel(Graphics g, Camera camera){
         for(Tile tile: tiles){
-            tile.draw(g);
+            tile.draw(g, camera);
         }
     }
 
@@ -42,6 +43,10 @@ public class Levels {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public int getWorldWidth(){
+        return data.blocks[data.blocks.length - 1].width + data.blocks[data.blocks.length -1].x;
     }
 }
 
