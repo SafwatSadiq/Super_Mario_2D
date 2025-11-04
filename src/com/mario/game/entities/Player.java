@@ -168,5 +168,4 @@ public class Player {
             frameIndex = 0;
         }
     }
-
 }

@@ -1,25 +1,29 @@
 package com.mario.game.levels;
 
+import com.mario.game.util.ImageLoader;
+
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class Tile {
     private int x, y;
     private int width, height;
     private boolean solid;
+    private String textureName;
+    private BufferedImage texture;
 
-    public Tile(int x, int y, int width, int height, boolean solid){
+    public Tile(int x, int y, int width, int height, boolean solid, String textureName){
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
         this.solid = solid;
+        this.textureName = textureName;
+        getTexture();
     }
 
     public void draw(Graphics graphics){
-        if(solid){
-            graphics.setColor(Color.DARK_GRAY);
-            graphics.fillRect(x, y, width, height);
-        }
+        graphics.drawImage(texture, x, y, width, height, null);
     }
 
     public boolean isSolid() {
@@ -28,5 +32,9 @@ public class Tile {
 
     public Rectangle getBounds(){
         return new Rectangle(x, y, width, height);
+    }
+
+    public void getTexture(){
+        texture = ImageLoader.load("src/resources/images/" + textureName + ".png");
     }
 }

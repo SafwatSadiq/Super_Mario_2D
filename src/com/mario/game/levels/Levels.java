@@ -17,10 +17,9 @@ public class Levels {
 
         if(loadLevelData()){
             for(Block block: data.blocks){
-                tiles.add(new Tile(block.x, block.y, block.width, block.height, block.solid));
+                tiles.add(new Tile(block.x, block.y, block.width, block.height, block.solid, block.texture));
             }
         }
-
     }
 
     public ArrayList<Tile> getTiles(){
@@ -54,4 +53,5 @@ class Data {
 class Block{
     int x, y, width, height;
     boolean solid;
+    String texture;
 }
