@@ -150,6 +150,7 @@ public class Player {
     }
 
     public BufferedImage getFrame(boolean left, boolean right) {
+        if(left && right) return standRightSmallMario;
         if (jumping && right) return jumpRightSmallMario;
         if (jumping && left) return jumpLeftSmallMario;
         if (right) return runRightSmallMarioFrames[frameIndex];
